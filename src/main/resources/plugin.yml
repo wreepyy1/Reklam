@@ -1,0 +1,55 @@
+name: Reklam
+version: '1.2.0'
+main: me.wreepyy.reklam.Reklam
+api-version: '1.21'
+folia-supported: true
+authors: [ wreepyy ]
+description: "Canlı süre takibi, çoklu paket, mute kontrolü, cooldown ve yapılandırılabilir GUI sunan gelişmiş oyuncu reklam sistemi."
+
+depend:
+  - Vault
+softdepend:
+  - PlaceholderAPI
+
+commands:
+  reklam:
+    description: "Reklam menüsünü açar."
+    usage: "/reklam"
+    permission: reklam.kullan
+  reklamadmin:
+    description: "Reklam eklentisini yönetir."
+    usage: "/reklamadmin <reload|remove|removeall>"
+    permission: reklam.admin
+
+permissions:
+  reklam.kullan:
+    description: "Reklam menüsünü açma yetkisi."
+    default: true
+  reklam.admin:
+    description: "Eklentiyi yönetme yetkisi."
+    default: op
+  reklam.silver:
+    description: "Silver paket reklam verme yetkisi."
+    default: true
+  reklam.gold:
+    description: "Gold paket reklam verme yetkisi."
+    default: true
+  reklam.epic:
+    description: "Epic paket reklam verme yetkisi."
+    default: true
+  reklam.diamond:
+    description: "Diamond paket reklam verme yetkisi."
+    default: true
+  # Aynı anda aktif reklam limiti — istediğiniz sayıyı ekleyebilirsiniz
+  reklam.limit.1:
+    description: "Aynı anda 1 aktif reklam hakkı."
+    default: true
+  reklam.limit.2:
+    description: "Aynı anda 2 aktif reklam hakkı."
+    default: false
+  reklam.limit.3:
+    description: "Aynı anda 3 aktif reklam hakkı."
+    default: false
+  reklam.limit.5:
+    description: "Aynı anda 5 aktif reklam hakkı."
+    default: false
