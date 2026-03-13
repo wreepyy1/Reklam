@@ -1,10 +1,6 @@
-# ──────────────────────────────────────────────────────
-#  Veritabanı Ayarları
-# ──────────────────────────────────────────────────────
 database:
   # "sqlite" veya "mysql"
   type: sqlite
-  # SQLite dosya adı (plugins/Reklam/ klasörüne kaydedilir)
   sqlite-file: database.db
   # MySQL için:
   host: localhost
@@ -13,9 +9,7 @@ database:
   username: root
   password: ""
 
-# ──────────────────────────────────────────────────────
-#  Yasaklı Kelimeler
-# ──────────────────────────────────────────────────────
+
 blocked-words:
   enabled: true
   leet-speak: true
@@ -24,40 +18,27 @@ blocked-words:
     - "küfür2"
     - "argo1"
 
-# ──────────────────────────────────────────────────────
-#  Mesaj Uzunluğu
-# ──────────────────────────────────────────────────────
+
 message-length:
   min: 5
   max: 100
 
-# ──────────────────────────────────────────────────────
-#  Mute Kontrolü
-# ──────────────────────────────────────────────────────
+
 mute-check:
   enabled: false
   permission-node: "litebans.muted"
   title-enabled: true
 
-# ──────────────────────────────────────────────────────
-#  Cooldown (saniye) — 0 = devre dışı
-# ──────────────────────────────────────────────────────
+
 wait-before-new-ad: 30
 
-# ──────────────────────────────────────────────────────
-#  Maksimum Aktif Reklam Limiti
-#  Permission: reklam.limit.<sayı>
-# ──────────────────────────────────────────────────────
+
 default-ad-limit: 1
 
-# ──────────────────────────────────────────────────────
-#  İptal Kelimesi
-# ──────────────────────────────────────────────────────
+
 input-cancel-keyword: "iptal"
 
-# ──────────────────────────────────────────────────────
-#  Paket Tanımları
-# ──────────────────────────────────────────────────────
+
 packages:
   SILVER:
     name: "Silver"
@@ -80,26 +61,11 @@ packages:
     duration: 43200
     perm: "reklam.diamond"
 
-# ──────────────────────────────────────────────────────
-#  GUI Ayarları
-#
-#  '#' → Köşe/kenar camı (filler)
-#  '?' → Bilgi butonu
-#  'y' → Reklam slotu (boşken barrier, doluyken player head)
-#
-#  Fotoğraftaki gibi: köşeler cam, ortası tamamen reklam slotları
-#  6 satır × 9 = 54 slot
-#  Reklam slotu sayısı = paket sayısı kadar (4 paket = 4 slot tekrarlanır)
-# ──────────────────────────────────────────────────────
+
 gui:
   title: "&8ᴏʏᴜɴᴄᴜ ʀᴇᴋʟᴀᴍʟᴀʀɪ"
 
-  # Fotoğraftaki düzen:
-  # Köşe camları — tam ortası reklam slotları — alt ortada bilgi butonu
-  # Her paket kendi harfiyle temsil edilir:
-  #   s = SILVER   g = GOLD   e = EPIC   d = DIAMOND
-  #   '#' = cam    '?' = bilgi butonu
-  # İstediğin slota istediğin paketi koy!
+
   structure:
     - "# # # # # # # # #"
     - "# . . . . . . . #"
@@ -155,17 +121,13 @@ gui:
         - "<#3896FF>%time%"
         - " "
 
-# ──────────────────────────────────────────────────────
-#  Süre Formatı
-# ──────────────────────────────────────────────────────
+
 time-format:
   hour: "saat"
   minute: "dakika"
   second: "saniye"
 
-# ──────────────────────────────────────────────────────
-#  Duyuru Ayarları
-# ──────────────────────────────────────────────────────
+
 announcements:
   chat:
     enabled: true
@@ -193,9 +155,7 @@ announcements:
     volume: 1.0
     pitch: 1.2
 
-# ──────────────────────────────────────────────────────
-#  Mesajlar
-# ──────────────────────────────────────────────────────
+
 messages:
   prefix: "<#3896FF>Reklam <dark_gray>▪ "
   reload: "<green>Yapılandırma dosyaları yenilendi!"
@@ -207,30 +167,23 @@ messages:
   success:  "<gray>Reklam başarıyla gönderildi!"
   blocked-word: "<red>Mesajın yasaklı kelime içeriyor, reklam oluşturulamadı."
   papi-empty: "<dark_gray>Bu alan boş."
-
-  # Mesaj uzunluk hatası — %min% ve %max% desteklenir
   invalid-length: "<gray>Mesajın <#3896FF>%min%<dark_gray>-<#3896FF>%max% <gray>karakter arasında olmalı! Tekrar gir."
-
-  # Mute mesajı
   muted: "<red>Susturulmuş olduğun için reklam alamazsın!"
-
-  # Yeni reklam bekleme süresi — %seconds% desteklenir
   wait: "<gray>Yeni reklam almadan önce <#3896FF>%seconds% saniye <gray>beklemelisin."
-
-  # Maksimum aktif reklam limiti — %limit% desteklenir
   max-limit: "<gray>Aynı anda en fazla <#3896FF>%limit% <gray>aktif reklamın olabilir."
+  player-only: "<red>Bu komut sadece oyuncular için kullanılabilir!"
+  package-not-found: "<red>Hata: Paket bulunamadı!"
 
-  # Admin mesajları
+  # Admin komutları
   admin-help:
     - "<#3896FF>Reklam <dark_gray>▪ <gray>Admin Yardımı"
     - "<#3896FF>/reklamadmin reload <dark_gray>- <#B7B7B7>Config'i yeniler."
     - "<#3896FF>/reklamadmin remove <slot> <dark_gray>- <#B7B7B7>Slottaki reklamı kaldırır."
-    - "<#3896FF>/reklamadmin removeall <oyuncu> <dark_gray>- <#B7B7B7>Oyuncunun tüm reklamlarını kaldırır."
-  admin-remove-usage:        "<gray>Kullanım: <#3896FF>/reklamadmin remove <slot>"
-  admin-remove-invalid-slot: "<#3896FF>#%slot% <gray>numaralı slot yapılandırmada tanımlı değil!"
-  admin-remove-success:      "<#3896FF>#%slot% <gray>numaralı slottaki reklam kaldırıldı."
-  admin-remove-empty:        "<#3896FF>#%slot% <gray>numaralı slotta aktif reklam yok!"
-  admin-removeall-usage:     "<gray>Kullanım: <#3896FF>/reklamadmin removeall <oyuncu>"
-  admin-removeall-success:   "<#3896FF>%player% <gray>adlı oyuncunun <#3896FF>%count% <gray>reklamı kaldırıldı."
-  admin-removeall-empty:     "<#3896FF>%player% <gray>adlı oyuncunun aktif reklamı yok."
-  admin-player-not-found:    "<#3896FF>%player% <gray>adlı oyuncu bulunamadı."
+    - "<#3896FF>/reklamadmin removeall <dark_gray>- <#B7B7B7>Tüm reklamları kaldırır."
+
+  admin-remove-usage: "<gray>Kullanım: <#3896FF>/reklamadmin remove <slot>"
+  admin-remove-success: "<#3896FF>#%slot% <gray>numaralı slottaki reklam kaldırıldı."
+  admin-remove-empty: "<#3896FF>#%slot% <gray>numaralı slotta aktif reklam yok!"
+
+  admin-removeall-success: "<gray>Toplam <#3896FF>%count% <gray>reklam başarıyla kaldırıldı!"
+  admin-removeall-empty: "<gray>Silinecek reklam yok, tüm slotlar zaten boş!"
