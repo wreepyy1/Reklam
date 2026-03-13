@@ -1,15 +1,16 @@
 name: Reklam
-version: '1.2.0'
+version: '${version}'
 main: me.wreepyy.reklam.Reklam
 api-version: '1.21'
 folia-supported: true
-authors: [ wreepyy ]
+author: wreepyy
 description: "Canlı süre takibi, çoklu paket, mute kontrolü, cooldown ve yapılandırılabilir GUI sunan gelişmiş oyuncu reklam sistemi."
 
 depend:
   - Vault
 softdepend:
   - PlaceholderAPI
+  - LiteBans
 
 commands:
   reklam:
